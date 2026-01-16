@@ -80,5 +80,3 @@ Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:30
 * `agent.py`: Main entry point. Defines the `Deepgram -> Groq -> Cartesia` pipeline and the `lookup_knowledge` tool.
 * `rag.py`: Handles vector embeddings (`sentence-transformers`) and similarity search (`faiss-cpu`).
 * `frontend/`: Next.js web interface using LiveKit Components.
-
-```
