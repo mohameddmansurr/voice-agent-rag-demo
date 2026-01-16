@@ -27,6 +27,7 @@ This demonstrates the flexibility of the LiveKit framework to swap backend provi
 - [LiveKit CLI](https://docs.livekit.io/home/cli/setup/) (Optional)
 
 ### 1. Backend Setup
+```bash
 # Clone the repo
 git clone [https://github.com/mohameddmansurr/voice-agent-rag-demo.git](https://github.com/mohameddmansurr/voice-agent-rag-demo.git)
 cd voice-agent-rag-demo
@@ -35,10 +36,13 @@ cd voice-agent-rag-demo
 pip install uv
 uv sync
 
+```
+
 ### 2. Environment Configuration
 
 Create a `.env.local` file in the root directory:
 
+```env
 # LiveKit Keys (from cloud.livekit.io)
 LIVEKIT_URL=wss://your-project.livekit.cloud
 LIVEKIT_API_KEY=your_key
@@ -49,17 +53,25 @@ DEEPGRAM_API_KEY=your_deepgram_key
 GROQ_API_KEY=your_groq_key
 CARTESIA_API_KEY=your_cartesia_key
 
+```
+
 ### 3. Run the Agent
 
+```bash
 uv run agent.py dev
+
+```
 
 ### 4. Frontend Setup
 
 Open a new terminal:
 
+```bash
 cd frontend
 npm install
 npm run dev
+
+```
 
 Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) to connect.
 
@@ -69,9 +81,24 @@ Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:30
 * `rag.py`: Handles vector embeddings (`sentence-transformers`) and similarity search (`faiss-cpu`).
 * `frontend/`: Next.js web interface using LiveKit Components.
 
+```
+
 #### **2. Push the README**
 Go back to your **PowerShell** and run these commands to send the file to GitHub:
 
+```powershell
 git add README.md
 git commit -m "Add documentation and architecture decision record"
 git push
+
+```
+
+---
+
+### **Now you are done.**
+
+1. **Code:** Live on GitHub ✅
+2. **Docs:** Explains the "Gemini fix" clearly ✅
+3. **Demo:** You have the script to record it ✅
+
+Go record that video and submit your application! You crushed it. 🚀
