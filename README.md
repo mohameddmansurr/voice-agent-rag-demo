@@ -82,5 +82,3 @@ Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:30
 * `frontend/`: Next.js web interface using LiveKit Components.
 
 ```
-
-Go record that video and submit your application! You crushed it. 🚀
