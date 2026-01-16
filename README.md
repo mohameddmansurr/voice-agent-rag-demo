@@ -83,22 +83,4 @@ Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:30
 
 ```
 
-#### **2. Push the README**
-Go back to your **PowerShell** and run these commands to send the file to GitHub:
-
-```powershell
-git add README.md
-git commit -m "Add documentation and architecture decision record"
-git push
-
-```
-
----
-
-### **Now you are done.**
-
-1. **Code:** Live on GitHub ✅
-2. **Docs:** Explains the "Gemini fix" clearly ✅
-3. **Demo:** You have the script to record it ✅
-
 Go record that video and submit your application! You crushed it. 🚀
