@@ -80,3 +80,32 @@ Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:30
 * `agent.py`: Main entry point. Defines the `Deepgram -> Groq -> Cartesia` pipeline and the `lookup_knowledge` tool.
 * `rag.py`: Handles vector embeddings (`sentence-transformers`) and similarity search (`faiss-cpu`).
 * `frontend/`: Next.js web interface using LiveKit Components.
+
+## 🧠 Technical Deep Dive: RAG & Prompt Engineering
+
+The RAG (Retrieval-Augmented Generation) system integrates with the LLM via **Function Calling**. Here is the exact flow:
+
+1.  **Intent Recognition:**
+    The System Prompt instructs the agent (Llama 3.1) to use the `lookup_knowledge` tool whenever the user asks technical questions (e.g., about "RAG", "LiveKit", or "Basil").
+
+2.  **Vector Search (The Retrieval):**
+    When the tool is triggered, the `rag.py` module:
+    - Encodes the user's query into a vector using `sentence-transformers/all-MiniLM-L6-v2`.
+    - Performs a similarity search against the pre-computed FAISS index.
+    - Returns the top 3 most relevant text chunks.
+
+3.  **Context Injection (The Integration):**
+    The retrieved text is **injected back into the conversation history** as a "Tool Output" message.
+    
+    *Example Prompt Structure constructed by the Agent:*
+    ```json
+    [
+      {"role": "user", "content": "Tell me about Basil."},
+      {"role": "assistant", "function_call": "lookup_knowledge(query='Basil')"},
+      {"role": "tool", "content": "Basil is a culinary herb... Sweet basil is used in pesto..."},
+      {"role": "assistant", "content": "Basil is a culinary herb often used in pesto..."} 
+    ]
+    ```
+
+4.  **Final Response:**
+    The LLM uses this injected context to generate a natural, accurate voice response.
